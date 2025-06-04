@@ -1,4 +1,4 @@
-import { images } from "../data/images";
+import { images } from "../data/images.js";
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 

@@ -1,3 +1,4 @@
+import "./init.js";
 import { images } from "../data/images";
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";

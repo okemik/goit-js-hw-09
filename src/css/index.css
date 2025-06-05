@@ -7,13 +7,11 @@ body {
 
 .pages-button-list {
   list-style-type: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
   padding: 20px 0;
-  margin: 0;
-}
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+  }
 
 .page-button {
   display: block;
@@ -26,6 +24,8 @@ body {
   border-radius: 8px;
   text-decoration: none;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  margin: 20px 20px;
+  width: 150px;
 }
 
 .page-button:hover {

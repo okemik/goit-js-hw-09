@@ -6,17 +6,14 @@ import SortCss from 'postcss-sort-media-queries';
 
 export default defineConfig(({ command }) => {
   return {
-    base: '/goit-js-hw-09/',
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
     },
-    root: '',  // Eğer HTML dosyaları kökteyse
+    root: 'src',
     build: {
       sourcemap: true,
-      outDir: 'dist',
-      emptyOutDir: true,
       rollupOptions: {
-        input: glob.sync('./*.html'),  // veya './src/*.html' eğer dosyalar src'deyse
+        input: glob.sync('./src/*.html'),
         output: {
           manualChunks(id) {
             if (id.includes('node_modules')) {
@@ -37,10 +34,12 @@ export default defineConfig(({ command }) => {
           },
         },
       },
+      outDir: '../dist',
+      emptyOutDir: true,
     },
     plugins: [
       injectHTML(),
-      FullReload(['./*.html']),
+      FullReload(['./src/**/**.html']),
       SortCss({
         sort: 'mobile-first',
       }),

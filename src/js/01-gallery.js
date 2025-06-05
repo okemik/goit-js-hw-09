@@ -67,28 +67,20 @@ const images = [
   },
 ];
 
-// Galeri öğelerini oluşturma
-const galleryContainer = document.querySelector(".gallery");
-const galleryMarkup = images
-  .map(
-    ({ preview, original, description }) => `
-    <li class="gallery-item">
-      <a class="gallery-link" href="${original}">
-        <img 
-          class="gallery-image" 
-          src="${preview}" 
-          alt="${description}" 
-        />
-      </a>
-    </li>
-  `
-  )
-  .join("");
+const gallery = document.querySelector('.gallery');
 
-galleryContainer.innerHTML = galleryMarkup;
+const imgs = images
+  .map(image => {
+    return `<li class="gallery-item">
+                <a class="gallery-link" href="${image.original}">
+                    <img class="gallery-image" src="${image.preview}" alt="${image.description}">
+                </a>
+            </li>`;
+  })
+  .join('');
+gallery.insertAdjacentHTML('afterbegin', imgs);
 
-// SimpleLightbox'u başlatma
-new SimpleLightbox(".gallery a", {
-  captionsData: "alt", // Açıklamalar için alt özniteliği
-  captionDelay: 250, // Açıklama 250ms gecikmeli gösterilir
+var lightbox = new SimpleLightbox('.gallery a', {
+  captionDelay: 250,
+  captionsData: 'alt',
 });
